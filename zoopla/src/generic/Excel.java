@@ -5,9 +5,9 @@ import java.io.IOException;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class Excel {
+public class Excel implements auto_constant{
 	
-	public String getData(String sourcePath,String newSheet,int row, int col) {
+	public static String getData(String sourcePath,String newSheet,int row, int col) {
 		String res="";
 		try {
 			FileInputStream fi = new FileInputStream(sourcePath);
@@ -21,7 +21,7 @@ public class Excel {
 		return res;
 	}
 	
-	public int getLastRow(String sourcePath,String newSheet,int row, int col) {
+	public static int getLastRow(String sourcePath,String newSheet,int row, int col) {
 		int res=0;
 		try {
 			FileInputStream fi = new FileInputStream(sourcePath);

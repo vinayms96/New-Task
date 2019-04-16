@@ -6,13 +6,13 @@ import java.util.Properties;
 
 public class Property {
 	
-	public String getProp(String path, String key) {
+	public static String getProp(String path, String searchKey) {
 		String result = "";
 		Properties prop = new Properties();
 		try {
 			FileInputStream fis = new FileInputStream(path);
 			prop.load(fis);
-			result = prop.getProperty(key);
+			result = prop.getProperty(searchKey);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
