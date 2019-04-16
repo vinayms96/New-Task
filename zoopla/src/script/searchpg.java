@@ -11,7 +11,8 @@ public class searchpg extends openbrowser {
 	public void getAll() {
 		search_pg sp = new search_pg(driver);
 		
+		System.out.println("Displaying all the Property prices of the Search Page...\n");
 		sp.collect();
-		System.out.println("Check");
+		
 	}
 }
