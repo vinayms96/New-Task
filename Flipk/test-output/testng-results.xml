@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="18066" started-at="2019-04-25T20:06:49Z" finished-at="2019-04-25T20:07:07Z">
+    <groups>
+    </groups>
+    <test name="flipTest" duration-ms="18066" started-at="2019-04-25T20:06:49Z" finished-at="2019-04-25T20:07:07Z">
+      <class name="testCases.homePage">
+        <test-method status="PASS" signature="open()[pri:0, instance:testCases.homePage@587d1d39]" name="open" is-config="true" duration-ms="14870" started-at="2019-04-25T20:06:49Z" finished-at="2019-04-25T20:07:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- open -->
+        <test-method status="PASS" signature="close()[pri:0, instance:testCases.homePage@587d1d39]" name="close" is-config="true" duration-ms="1434" started-at="2019-04-25T20:07:05Z" finished-at="2019-04-25T20:07:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- testCases.homePage -->
+    </test> <!-- flipTest -->
+  </suite> <!-- Suite -->
+</testng-results>
