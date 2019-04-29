@@ -19,9 +19,9 @@ public class get_Img {
 
 	public void img() {
 
-//		for(int i=0 ; i<ele.size();i++) {
-//			System.out.println(ele.get(i).getAttribute("outerHTML"));
-//		}
+		for(int i=0 ; i<ele.size();i++) {
+			System.out.println(ele.get(i).getAttribute("outerHTML"));
+		}
 
 		for (WebElement val : ele) {
 			if (val.getAttribute("src") != null) {
