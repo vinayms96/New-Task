@@ -1,18 +1,21 @@
 package utils;
 
 import java.io.FileInputStream;
-import java.util.List;
+import java.io.FileOutputStream;
 
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import generic.openbrowser;
 
 public class excel extends openbrowser {
 	public FileInputStream fi;
-	public XSSFWorkbook wb;
-	public XSSFSheet sheet;
+	public static XSSFWorkbook wb;
+	public static Sheet sheet;
 
 	public excel(String path, String name) {
 		try {
@@ -56,6 +59,30 @@ public class excel extends openbrowser {
 			e.printStackTrace();
 		}
 		return colNum;
+	}
+	
+	public static void setData(int row,int cell,Object data,Workbook wb,Sheet sheet) {
+		try {
+			XSSFRow rowNum = (XSSFRow) sheet.getRow(row);
+			if(rowNum == null) {
+				rowNum = (XSSFRow) sheet.createRow(row);
+			}
+			Cell cellVal = rowNum.createCell(cell);
+//			Cell cellVal = sheet.getRow(row).getCell(cell);
+			FileOutputStream fo = new FileOutputStream(setPath);
+			if(cellVal.getCellTypeEnum() == CellType.STRING) {
+				cellVal.setCellValue((String)data);
+				wb.write(fo);
+			}else if(cellVal.getCellTypeEnum() == CellType.NUMERIC) {
+				cellVal.setCellValue((Integer)data);
+				wb.write(fo);
+			}
+			fo.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 //	public void writeData(List<WebElement> dataToSave,int last) {

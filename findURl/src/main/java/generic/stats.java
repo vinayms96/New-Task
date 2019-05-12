@@ -15,7 +15,6 @@ public class stats {
 		HttpURLConnection httpConnect;
 		for (int i = 0; i < url.size(); i++) {
 			try {
-				System.out.println("Stat: "+url.get(i));
 				links = new URL(url.get(i));
 				httpConnect = (HttpURLConnection) links.openConnection();
 				stCode = httpConnect.getResponseCode();
@@ -23,6 +22,7 @@ public class stats {
 				String total = stCode+" : "+stMsg;
 				status.add(total);
 				httpConnect.disconnect();
+				System.out.println("Stat: "+url.get(i)+" : "+stCode+"("+stMsg+")");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

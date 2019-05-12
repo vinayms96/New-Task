@@ -1,25 +1,33 @@
 package scripts;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import generic.openbrowser;
 import generic.stats;
-import utils.writeExcel;
+import utils.excel;
 
 public class getUrls extends openbrowser {
 
+	public static XSSFWorkbook wb = new XSSFWorkbook();
+	public static Sheet sheet = wb.createSheet("Sheet1");
+	
 	@Test
-	public void find() {
+	public void find() throws InvalidFormatException, IOException {
+		
 		int cell = 0;
 		String urls;
 //		int count = 0;
 //		excel file = new excel(readPath, sheetName);
-		writeExcel wrex = new writeExcel(sheetName);
+//		writeExcel wrex = new writeExcel(sheetName);
 
 		List<WebElement> elements = driver.findElements(By.tagName("a"));
 //		test.info("All the <a> elements are fetched");
@@ -41,15 +49,15 @@ public class getUrls extends openbrowser {
 			urls = ele.getAttribute("href");
 			if (urls != null) {
 				list.add(urls);
-				System.out.println(urls);
 			}
 		}
 		List<String> status = stats.statCode(list);
 //		List<String> stMsg = stats.statMsg(list);
 		for (int row = 0; row < list.size(); row++) {
 			for (cell = 0; cell < 2; cell++) {
-				Object[] obj1 = { list, status};
-				wrex.setData(obj1,readPath);
+				Object[] obj1 = { list, status };
+//				wrex.setData(obj1,readPath);
+//				excel.setData(row, cell, obj1, wb,sheet);
 			}
 		}
 
