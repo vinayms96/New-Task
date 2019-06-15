@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="@localhost" uuid="22564083-e49a-48aa-b040-13a243e5bcf9">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <secret-storage>session</secret-storage>
+      <user-name>Vinay</user-name>
+    </data-source>
+  </component>
+</project>
