@@ -3,7 +3,7 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="scripts.getUrls">
+      <class name="script.getUrls">
         <methods>
           <include name="close"/>
           <include name="extentOpen"/>
@@ -11,7 +11,7 @@
           <include name="extentClose"/>
           <include name="open"/>
         </methods>
-      </class> <!-- scripts.getUrls -->
+      </class> <!-- script.getUrls -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

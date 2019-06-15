@@ -8,6 +8,6 @@ public interface auto_constant {
 	String extentSave = "./genReport.html";
 	String readPath = "./src/main/resources/excelSourceFiles/urlsFile.xlsx";
 	String sheetName = "allUrls";
-	
+	String setPath = "./src/main/resources/excelSourceFiles/allUrls.xlsx";
 	
 }

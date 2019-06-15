@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="mmtTest">
+    <test name="test">
+        <classes>
+            <class name="testCases.homePage"/>
+        </classes>
+    </test>
+</suite>

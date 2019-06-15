@@ -7,15 +7,15 @@ import java.util.List;
 
 public class stats {
 
+	/*Getting the Status of the url passed and return it back*/
 	public static List<String> statCode(List<String> url) {
 		URL links;
 		String stMsg;
 		int stCode;
 		List<String> status = new ArrayList<>();
 		HttpURLConnection httpConnect;
-		for (int i = 0; i < url.size(); i++) {
+		for (int i = 0; i < url.size()-1; i++) {
 			try {
-				System.out.println("Stat: "+url.get(i));
 				links = new URL(url.get(i));
 				httpConnect = (HttpURLConnection) links.openConnection();
 				stCode = httpConnect.getResponseCode();
@@ -23,6 +23,7 @@ public class stats {
 				String total = stCode+" : "+stMsg;
 				status.add(total);
 				httpConnect.disconnect();
+				System.out.println("Stat: "+url.get(i)+" : "+stCode+"("+stMsg+")");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -31,7 +32,7 @@ public class stats {
 		return status;
 	}
 
-	public static List<String> statMsg(List<String> url) {
+/*	public static List<String> statMsg(List<String> url) {
 		URL links;
 		List<String> stMsg = new ArrayList<>();
 		HttpURLConnection httpConnect;
@@ -47,5 +48,5 @@ public class stats {
 			}
 		}
 		return stMsg;
-	}
+	}*/
 }
