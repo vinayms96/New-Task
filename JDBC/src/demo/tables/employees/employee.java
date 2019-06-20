@@ -1,4 +1,4 @@
-package first.tables.employees;
+package demo.tables.employees;
 
 class employee{
     String firstName;
