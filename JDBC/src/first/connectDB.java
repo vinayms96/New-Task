@@ -2,14 +2,16 @@ package first;
 import java.sql.*;
 
 public class connectDB {
-    public static void main(String[] args) {
+    public  static Connection connect;
+    public static Connection getConnect() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/first","root","acernsrc");
+           connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/first","root","acernsrc");
             System.out.println("Connected to Database!");
-            connect.close();
+//            return connect;
         } catch (Exception e) {
             e.printStackTrace();
         }
+    return connect;
     }
 }
