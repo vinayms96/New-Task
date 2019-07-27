@@ -15,9 +15,9 @@ import com.aventstack.extentreports.reporter.ExtentAventReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class openBrowser implements auto_constant {
-	public WebDriver driver;
+	public static WebDriver driver;
 	public ExtentReports extent;
-	ExtentAventReporter avent;
+	public ExtentAventReporter avent;
 
 	@BeforeSuite
 	public void open() {
@@ -30,8 +30,8 @@ public class openBrowser implements auto_constant {
 		ExtentTest browse = extent.createTest("Choosing Browser");
 		
 		// Choose Browser
-		if (property.getData("browser") == "CH") {
-			WebDriverManager.chromedriver().version("76.0.3809.68").arch64();
+		if (property.getData("browser").equals("CH")) {
+			WebDriverManager.chromedriver().setup();
 			if (property.getData("head") == "On") {
 				ChromeOptions options = new ChromeOptions();
 				options.addArguments("--headless");
@@ -41,8 +41,8 @@ public class openBrowser implements auto_constant {
 				driver = new ChromeDriver();
 				browse.pass("Chrome Browser Launched");
 			}
-		} else if (property.getData("browser") == "FF") {
-			WebDriverManager.firefoxdriver();
+		} else if (property.getData("browser").equals("FF")) {
+			WebDriverManager.firefoxdriver().setup();
 			if (property.getData("head") == "On") {
 				FirefoxOptions options = new FirefoxOptions();
 				options.addArguments("--headless");
@@ -53,6 +53,7 @@ public class openBrowser implements auto_constant {
 				browse.pass("Firefox Browser Launched");
 			}
 		}
+		driver.manage().window().maximize();
 		driver.get(url);
 		browse.pass("Website url "+url+" launched");
 	}
