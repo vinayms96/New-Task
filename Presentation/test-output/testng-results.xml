@@ -1,36 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="4" total="7" passed="2" failed="1" skipped="0">
+<testng-results ignored="6" total="10" passed="3" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-07-27T20:17:55Z" name="Suite" finished-at="2019-07-27T20:18:08Z" duration-ms="13194">
+  <suite started-at="2019-07-29T20:38:45Z" name="Suite" finished-at="2019-07-29T20:39:01Z" duration-ms="16087">
     <groups>
     </groups>
-    <test started-at="2019-07-27T20:17:55Z" name="Test" finished-at="2019-07-27T20:18:08Z" duration-ms="13194">
+    <test started-at="2019-07-29T20:38:45Z" name="Test" finished-at="2019-07-29T20:39:01Z" duration-ms="16087">
       <class name="testCases.searchPg">
-        <test-method is-config="true" signature="open()[pri:0, instance:testCases.searchPg@35e26d05]" started-at="2019-07-27T20:17:43Z" name="open" finished-at="2019-07-27T20:17:55Z" duration-ms="11938" status="PASS">
+        <test-method is-config="true" signature="open()[pri:0, instance:testCases.searchPg@35e26d05]" started-at="2019-07-29T20:38:30Z" name="open" finished-at="2019-07-29T20:38:45Z" duration-ms="14907" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- open -->
-        <test-method signature="search()[pri:0, instance:testCases.searchPg@35e26d05]" started-at="2019-07-27T20:17:55Z" name="search" finished-at="2019-07-27T20:18:00Z" duration-ms="4949" status="PASS">
+        <test-method signature="search()[pri:0, instance:testCases.searchPg@35e26d05]" started-at="2019-07-29T20:38:45Z" name="search" finished-at="2019-07-29T20:38:51Z" duration-ms="6727" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- search -->
-        <test-method is-config="true" signature="close()[pri:0, instance:testCases.searchPg@35e26d05]" started-at="2019-07-27T20:18:09Z" name="close" finished-at="2019-07-27T20:18:09Z" duration-ms="225" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.searchPg@35e26d05]" started-at="2019-07-29T20:39:01Z" name="close" finished-at="2019-07-29T20:39:01Z" duration-ms="4" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
       </class> <!-- testCases.searchPg -->
-      <class name="testCases.productPg">
-        <test-method signature="product()[pri:0, instance:testCases.productPg@7c72ecc]" started-at="2019-07-27T20:18:04Z" name="product" finished-at="2019-07-27T20:18:08Z" duration-ms="4150" status="FAIL">
-          <exception class="java.lang.IllegalArgumentException">
+      <class name="testCases.minicartPop">
+        <test-method signature="miniCart()[pri:0, instance:testCases.minicartPop@47406941]" started-at="2019-07-29T20:39:00Z" name="miniCart" finished-at="2019-07-29T20:39:01Z" duration-ms="432" status="FAIL">
+          <exception class="java.lang.IndexOutOfBoundsException">
             <message>
-              <![CDATA[bound must be positive]]>
+              <![CDATA[Index 2 out of bounds for length 2]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: bound must be positive
-at java.base/java.util.Random.nextInt(Random.java:388)
-at pageModels.product_pg.swatches(product_pg.java:33)
-at testCases.productPg.product(productPg.java:12)
+              <![CDATA[java.lang.IndexOutOfBoundsException: Index 2 out of bounds for length 2
+at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
+at java.base/java.util.Objects.checkIndex(Objects.java:372)
+at java.base/java.util.ArrayList.get(ArrayList.java:458)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
+at com.sun.proxy.$Proxy14.get(Unknown Source)
+at pageModels.minicart_pop.configOptions(minicart_pop.java:68)
+at testCases.minicartPop.miniCart(minicartPop.java:16)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -58,13 +68,19 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.IllegalArgumentException -->
+          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- miniCart -->
+      </class> <!-- testCases.minicartPop -->
+      <class name="testCases.productPg">
+        <test-method signature="product()[pri:0, instance:testCases.productPg@7c72ecc]" started-at="2019-07-29T20:38:55Z" name="product" finished-at="2019-07-29T20:39:00Z" duration-ms="5219" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- product -->
       </class> <!-- testCases.productPg -->
       <class name="testCases.listingPg">
-        <test-method signature="listing()[pri:0, instance:testCases.listingPg@29fa6b65]" started-at="2019-07-27T20:18:00Z" name="listing" finished-at="2019-07-27T20:18:04Z" duration-ms="4020" status="PASS">
+        <test-method signature="listing()[pri:0, instance:testCases.listingPg@29fa6b65]" started-at="2019-07-29T20:38:51Z" name="listing" finished-at="2019-07-29T20:38:55Z" duration-ms="3648" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- listing -->

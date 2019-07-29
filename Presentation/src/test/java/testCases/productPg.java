@@ -9,6 +9,9 @@ public class productPg extends openBrowser{
 	@Test
 	public void product(){
 		product_pg pp = new product_pg(driver);
-		pp.swatches(driver);
+		pp.swatches();
+		pp.addCart();
+		pp.confirmMsg(driver);
+		pp.getProdQty();
 	}
 }

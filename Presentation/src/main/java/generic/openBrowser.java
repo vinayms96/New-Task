@@ -61,7 +61,7 @@ public class openBrowser implements auto_constant {
 	@AfterSuite
 	public void close() {
 		extent.flush();
-		driver.quit();
+//		driver.quit();
 	}
 
 }

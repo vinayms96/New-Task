@@ -14,6 +14,10 @@ public class action extends openBrowser{
 		a.moveToElement(ele).click().perform();
 	}
 	
+//	public static void actClick(String str) {
+//		a.moveToElement
+//	}
+	
 	public static void actMove(WebElement ele) {
 		a.moveToElement(ele).perform();
 	}
