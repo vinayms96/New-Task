@@ -2,7 +2,6 @@ package pageModels;
 
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +14,9 @@ import generic.action;
 public class product_pg {
 	String Size;
 	String Color;
-	String Qty;
+	Integer Qty;
+	WebElement getOp1;
+	WebElement getOp2;
 
 	@FindAll(@FindBy(xpath = "//div[@class='product-add-form']/form/..//div[@class='swatch-opt']/div/div"))
 	private List<WebElement> swatches;
@@ -29,40 +30,70 @@ public class product_pg {
 	private WebElement messages;
 	@FindBy(xpath = "//div[@class='product-options-bottom']/.//div[@class='field qty']/div/input")
 	private WebElement prodQty;
+	@FindBy(xpath = "//span[contains(text(),'See Details')]")
+	private WebElement seeDetails;
 
 	public product_pg(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-
+	
 	public void swatches() {
+		
 		Random r = new Random();
 		
 		//Selecting first Swatch
-		WebElement getOp1 = swatch1.get(r.nextInt(swatch1.size()));
-		Size = getOp1.getAttribute("aria-label");
+		getOp1 = swatch1.get(r.nextInt(swatch1.size()));
+		Size = getOp1.getAttribute("aria-label").toString();
+		System.out.println("Size "+Size);
 		action.actClick(getOp1);
 		
 		//Selecting Second swatch
-		WebElement getOp2 = swatch2.get(r.nextInt(swatch2.size()));
-		Color = getOp2.getAttribute("aria-label");
+		getOp2 = swatch2.get(r.nextInt(swatch2.size()));
+		Color = getOp2.getAttribute("aria-label").toString();
+		System.out.println("color "+Color);
 		action.actClick(getOp2);
+		
+		Qty = Integer.valueOf(prodQty.getAttribute("value"));
+		
 	}
 
 	public void addCart() {
 		action.actClick(cartButton);
 	}
 	
-	public void confirmMsg(WebDriver driver) {
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-//		generic.wait.waitVisible(messages);
-		if(messages.getAttribute("data-bind").equals("html: message.text")) {
+	public void confirmMsg(WebDriver driver) throws Exception {
+//		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		Thread.sleep(5000);
+		if((messages.getAttribute("data-bind")).equals("html: message.text")) {
 			System.out.println("The Confirmation message is Displayed");
 		}else {
 			System.out.println("The Confirmation message is NOT Displayed");
 		}
 	}
 	
-	public void getProdQty() {
-		Qty = prodQty.getAttribute("value");
+	public void configOptions(WebDriver driver) {
+		int count = 1;
+		action.actClick(seeDetails);
+		while(count<3) {
+			switch (count) {
+			case 1:
+				if ((getOp1.getAttribute("aria-label").toString()).equals(Size)) {
+					System.out.println("Same Size is added to Cart");
+				} else {
+					System.out.println("Different Size is added to Cart");
+				}
+				break;
+			case 2:
+				if ((getOp2.getAttribute("aria-label").toString()).equals(Color)) {
+					System.out.println("Same Color Attribute is added to Cart");
+				} else {
+					System.out.println("Different Color Attribute is added to Cart");
+				}
+				break;
+			default:
+				System.out.println("Product not added to Cart.");
+			}
+			count++;
+		}
 	}
 }

@@ -7,6 +7,6 @@
 			<class name="testCases.listingPg"/>
 			<class name="testCases.productPg"/>
 			<class name="testCases.minicartPop"/>
-		</classes>
+		</classes>		
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

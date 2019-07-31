@@ -7,11 +7,10 @@ import pageModels.product_pg;
 
 public class productPg extends openBrowser{
 	@Test
-	public void product(){
+	public void product() throws Exception{
 		product_pg pp = new product_pg(driver);
 		pp.swatches();
 		pp.addCart();
 		pp.confirmMsg(driver);
-		pp.getProdQty();
 	}
 }
