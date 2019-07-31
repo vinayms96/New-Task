@@ -18,4 +18,5 @@ public class property implements auto_constant{
 		}
 		return value;
 	}
+
 }

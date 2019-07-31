@@ -3,6 +3,13 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="5">
   <test thread-count="5" name="Test(failed)" verbose="5">
     <classes>
+      <class name="testCases.cartPg">
+        <methods>
+          <include name="cart"/>
+          <include name="open"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- testCases.cartPg -->
       <class name="testCases.minicartPop">
         <methods>
           <include name="open"/>
@@ -10,6 +17,13 @@
           <include name="miniCart"/>
         </methods>
       </class> <!-- testCases.minicartPop -->
+      <class name="testCases.loginPg">
+        <methods>
+          <include name="open"/>
+          <include name="close"/>
+          <include name="login"/>
+        </methods>
+      </class> <!-- testCases.loginPg -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

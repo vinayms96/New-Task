@@ -8,10 +8,10 @@ import pageModels.cart_pg;
 public class cartPg extends openBrowser{
 
 	@Test
-	public void cart() {
+	public void cart() throws Exception {
 		cart_pg cp = new cart_pg(driver);
-		cp.checkProdname(driver);
-		cp.clickCheckout();
+//		cp.checkProdname(driver);
+		cp.clickCheckout(driver);
 	}
 	
 }

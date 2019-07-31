@@ -7,6 +7,9 @@
 			<class name="testCases.listingPg"/>
 			<class name="testCases.productPg"/>
 			<class name="testCases.minicartPop"/>
+			<class name="testCases.cartPg"/>
+			<class name="testCases.loginPg"/>
+			<class name="testCases.checkoutPg"/>
 		</classes>		
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

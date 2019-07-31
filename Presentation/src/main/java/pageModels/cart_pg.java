@@ -1,5 +1,6 @@
 package pageModels;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +10,7 @@ import generic.action;
 
 public class cart_pg {
 	minicart_pop mp;
+	JavascriptExecutor js;
 
 	@FindBy(xpath = "//td[@class='col item']//strong[@class='product-item-name']/a")
 	private WebElement cartName;
@@ -29,6 +31,8 @@ public class cart_pg {
 		mp = new minicart_pop(driver);
 		
 		//Product Name check
+		System.out.println(mp.productName);
+		System.out.println(mp.productPrice);
 		if ((mp.productName).equals(cartName.getText())) {
 			System.out.println("Same product is displayed in Cart Page");
 		} else {
@@ -43,7 +47,10 @@ public class cart_pg {
 		}
 	}
 	
-	public void clickCheckout() {
+	public void clickCheckout(WebDriver driver) throws Exception {
+		js = (JavascriptExecutor)driver;
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].scrollIntoView(true);", checkout);
 		action.actClick(checkout);
 	}
 

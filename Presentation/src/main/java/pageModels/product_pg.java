@@ -37,8 +37,9 @@ public class product_pg {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void swatches() {
+	public void swatches() throws Exception {
 		
+		Thread.sleep(2000);
 		Random r = new Random();
 		
 		//Selecting first Swatch
