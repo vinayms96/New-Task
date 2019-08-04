@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="10" total="16" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2019-07-31T20:33:17Z" name="Suite" finished-at="2019-07-31T20:34:03Z" duration-ms="45635">
+    <groups>
+    </groups>
+    <test started-at="2019-07-31T20:33:17Z" name="Test" finished-at="2019-07-31T20:34:03Z" duration-ms="45635">
+      <class name="testCases.searchPg">
+        <test-method is-config="true" signature="open()[pri:0, instance:testCases.searchPg@737db7f8]" started-at="2019-07-31T20:33:05Z" name="open" finished-at="2019-07-31T20:33:17Z" duration-ms="12818" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- open -->
+        <test-method signature="search()[pri:0, instance:testCases.searchPg@737db7f8]" started-at="2019-07-31T20:33:18Z" name="search" finished-at="2019-07-31T20:33:25Z" duration-ms="7630" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.searchPg@737db7f8]" started-at="2019-07-31T20:34:03Z" name="close" finished-at="2019-07-31T20:34:03Z" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- testCases.searchPg -->
+      <class name="testCases.loginPg">
+        <test-method signature="login()[pri:0, instance:testCases.loginPg@532e27ab]" started-at="2019-07-31T20:33:54Z" name="login" finished-at="2019-07-31T20:34:03Z" duration-ms="9608" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+      </class> <!-- testCases.loginPg -->
+      <class name="testCases.minicartPop">
+        <test-method signature="miniCart()[pri:0, instance:testCases.minicartPop@7d57dbb5]" started-at="2019-07-31T20:33:36Z" name="miniCart" finished-at="2019-07-31T20:33:46Z" duration-ms="9565" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- miniCart -->
+      </class> <!-- testCases.minicartPop -->
+      <class name="testCases.productPg">
+        <test-method signature="product()[pri:0, instance:testCases.productPg@5922d3e9]" started-at="2019-07-31T20:33:29Z" name="product" finished-at="2019-07-31T20:33:36Z" duration-ms="7424" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- product -->
+      </class> <!-- testCases.productPg -->
+      <class name="testCases.listingPg">
+        <test-method signature="listing()[pri:0, instance:testCases.listingPg@5f2de715]" started-at="2019-07-31T20:33:25Z" name="listing" finished-at="2019-07-31T20:33:29Z" duration-ms="3363" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- listing -->
+      </class> <!-- testCases.listingPg -->
+      <class name="testCases.cartPg">
+        <test-method signature="cart()[pri:0, instance:testCases.cartPg@630b6190]" started-at="2019-07-31T20:33:46Z" name="cart" finished-at="2019-07-31T20:33:54Z" duration-ms="7987" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cart -->
+      </class> <!-- testCases.cartPg -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
