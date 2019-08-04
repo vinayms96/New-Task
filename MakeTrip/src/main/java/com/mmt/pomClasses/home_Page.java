@@ -66,7 +66,7 @@ public class home_Page {
 		for (WebElement ele : menus) {
 			menuList.add(ele);
 		}
-		Iterator iter = menuList.iterator();
+		Iterator<WebElement> iter = menuList.iterator();
 		while (iter.hasNext()) {
 			WebElement ele = (WebElement) iter.next();
 			String fetchClass = ele.findElement(By.tagName("a")).getAttribute("class");
@@ -87,15 +87,15 @@ public class home_Page {
 		for (WebElement ele : type) {
 			li.add(ele);
 		}
-		if (Property.getData("travelType") == "one") {
+		if (Property.getData("travelType") == "1") {
 			System.out.println("Chose ONEWAY TRIP");
 			home_Page.loop(0, li);
-		} else if (Property.getData("travelType") == "two") {
+		} else if (Property.getData("travelType") == "2") {
 			System.out.println("Chose ROUND CITY");
 			home_Page.loop(1, li);
 			String text = li.get(1).getText();
 			System.out.println(text);
-		} else {
+		} else if(Property.getData("travelType")=="3") {
 			System.out.println("Chose MULTI CITY");
 			home_Page.loop(2, li);
 		}
@@ -113,11 +113,14 @@ public class home_Page {
 			case 1:
 				action.actClick(fromCity);
 				dateSelector(loop, from, driver);
+				break;
 			case 2:
 				action.actClick(toCity);
 				dateSelector(loop, to, driver);
+				break;
 			case 4:
 				dateSelector(loop, "", driver);
+				break;
 			}
 		}
 	}
@@ -135,7 +138,8 @@ public class home_Page {
 				e.printStackTrace();
 			}
 			for (int i = 1; i < sugg.size(); i++) {
-				String cityCode = sugg.get(i).findElement(By.xpath("//div[@class='makeFlex hrtlCenter']/div/p[1]")).getText();
+				String cityCode = sugg.get(i)	`.findElement(By.xpath("//div[@class='makeFlex hrtlCenter']/div/p[1]")).getText();
+				System.out.println(cityCode);
 				if (fromto.contains(cityCode)) {
 					action.actClick(selectSuggestion);
 					break;
