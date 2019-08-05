@@ -29,6 +29,7 @@ public class openBrowser implements auto_constant {
 						WebDriverManager.firefoxdriver().setup();
 						driver = new FirefoxDriver();
 				}
+				driver.manage().window().maximize();
 				driver.get(url);
 				System.out.println("Website Launched\n");
 		}
