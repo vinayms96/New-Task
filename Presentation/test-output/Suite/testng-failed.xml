@@ -3,27 +3,20 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="5">
   <test thread-count="5" name="Test(failed)" verbose="5">
     <classes>
-      <class name="testCases.cartPg">
+      <class name="testCases.checkoutPg">
         <methods>
-          <include name="cart"/>
+          <include name="checkout"/>
           <include name="open"/>
           <include name="close"/>
         </methods>
-      </class> <!-- testCases.cartPg -->
-      <class name="testCases.minicartPop">
+      </class> <!-- testCases.checkoutPg -->
+      <class name="testCases.accountPg">
         <methods>
+          <include name="account"/>
           <include name="open"/>
           <include name="close"/>
-          <include name="miniCart"/>
         </methods>
-      </class> <!-- testCases.minicartPop -->
-      <class name="testCases.loginPg">
-        <methods>
-          <include name="open"/>
-          <include name="close"/>
-          <include name="login"/>
-        </methods>
-      </class> <!-- testCases.loginPg -->
+      </class> <!-- testCases.accountPg -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

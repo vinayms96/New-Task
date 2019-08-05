@@ -61,7 +61,8 @@ public class minicart_pop {
 		System.out.println(item + " Product(s) added to Cart");
 	}
 
-	public void productName() {
+	public void productName() throws Exception {
+		Thread.sleep(2000);
 		productName = (miniName.getText().toString());
 		if ((miniName.getText().toString()).equals(prodName.getText().toString())) {
 			System.out.println("The Product '" + prodName.getText().toString() + "' is added to Cart");

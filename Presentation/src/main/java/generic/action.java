@@ -2,6 +2,7 @@ package generic;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -14,9 +15,9 @@ public class action extends openBrowser{
 		a.moveToElement(ele).click().perform();
 	}
 	
-//	public static void actClick(String str) {
-//		a.moveToElement
-//	}
+	public static void actClick(WebElement ele,Point p) {
+		a.moveToElement(ele).moveByOffset(p.x, p.y).click().perform();
+	}
 	
 	public static void actMove(WebElement ele) {
 		a.moveToElement(ele).perform();

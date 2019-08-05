@@ -1,6 +1,7 @@
 package pageModels;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +13,7 @@ import generic.property;
 
 public class checkout_pg {
 	JavascriptExecutor js;
-	Integer orderID;
+	public Integer orderID;
 
 	@FindBy(xpath = "//div[@class='control _with-tooltip']//input[@id='customer-email']")
 	private WebElement _1;
@@ -48,7 +49,7 @@ public class checkout_pg {
 	private WebElement thank;
 	@FindBy(xpath = "//div[@class='checkout-success']/p/a/strong")
 	private WebElement orderId;
-	@FindBy(xpath = "(//span[@class='customer-name'])[1]/span")
+	@FindBy(xpath = "//span[@class='customer-name active']//button[@class='action switch']")
 	private WebElement user;
 	@FindBy(xpath = "(//div[@class='customer-menu']/ul/li)[1]/a")
 	private WebElement account;
@@ -92,22 +93,31 @@ public class checkout_pg {
 		action.actClick(next);
 	}
 	
-	public void shipping() {
-		if(shipMethod.getAttribute("checked").equals("true")) {
-			js.executeScript("arguments[0].click();", next);
-		}else {
-			js.executeScript("arguments[0].click();", shipMethod);
-			js.executeScript("arguments[0].click();", next);
-		}
+	public void shipping(WebDriver driver) throws Exception {
+		Thread.sleep(3000);
+		js = (JavascriptExecutor)driver;
+		Point p = next.getLocation();
+//		if(shipMethod.getAttribute("checked").equals("true")) {
+//			js.executeScript("arguments[0].click();", next);
+//		}else {
+//			js.executeScript("arguments[0].click();", shipMethod);
+//			js.executeScript("arguments[0].scrollIntoView(true);", next);
+			action.actClick(next,p);
+//			next.sendKeys(Keys.RETURN);
+//		}
 	}
 	
-	public void bank() {
-		if(bankTransfer.getAttribute("data-bind").contains("checked: isChecked")) {
-			js.executeScript("arguments[0].click();", placeOrder);
-		}else {
-			js.executeScript("arguments[0].click();", bankTransfer);
-			js.executeScript("arguments[0].click();", placeOrder);
-		}
+	public void bank(WebDriver driver) throws Exception {
+		Thread.sleep(2000);
+		js = (JavascriptExecutor)driver;
+//		if(bankTransfer.getAttribute("data-bind").contains("checked: isChecked")) {
+//			js.executeScript("arguments[0].click();", placeOrder);
+//		}else {
+			js.executeScript("arguments[0].scrollIntoView(true);", bankTransfer);
+			action.actClick(bankTransfer);
+			js.executeScript("arguments[0].scrollIntoView(true);", placeOrder);
+			action.actClick(placeOrder);
+//		}
 	}
 	
 	public void confirmationPage() {
@@ -122,7 +132,8 @@ public class checkout_pg {
 		orderID = Integer.valueOf(orderId.getText());
 	}
 	
-	public void accountPage() throws Exception {
+	public void accountPage(WebDriver driver) throws Exception {
+		js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", user);
 		Thread.sleep(2000);
 		js.executeScript("arguments.click();", account);	
