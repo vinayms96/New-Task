@@ -2,15 +2,20 @@ package pageModels;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.action;
+import generic.openBrowser;
 
 public class minicart_pop {
+	ExtentTest minicart = openBrowser.extent.createTest("Minicart Popup");
 	product_pg pp;
 	WebElement getOp1;
 	WebElement getOp2;
@@ -23,7 +28,7 @@ public class minicart_pop {
 	private WebElement itemCount;
 	@FindBy(xpath = "//div[@class='page-title-wrapper product']/h1/span")
 	private WebElement prodName;
-	@FindBy(xpath = "//div[@class='minicart-items-wrapper']/ol/li[1]/div/div/strong/a")
+	@FindBy(xpath = "//div[@class='product-item-details']/strong/a")
 	private WebElement miniName;
 	@FindAll(@FindBy(xpath = "//div[@class='minicart-items-wrapper']/ol/li[1]/div/div/div/div/dl/dd/span"))
 	private List<WebElement> options;
@@ -54,20 +59,32 @@ public class minicart_pop {
 //		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		Thread.sleep(5000);
 		action.actClick(mini);
+		if(driver.findElement(By.xpath("//div[@id='ui-id-1']")).isDisplayed()) {
+			minicart.pass("Minicart popup is displayed");
+		}else {
+			minicart.fail("Minicart popup is not displayed");
+		}
 	}
 
 	public void miniCount() {
 		Integer item = Integer.valueOf(itemCount.getText());
 		System.out.println(item + " Product(s) added to Cart");
+		if(item>0) {
+			minicart.pass(item+" Product(s) added to Cart");
+		}else {
+			minicart.fail("No Products were added to Cart");
+		}
 	}
 
 	public void productName() throws Exception {
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		productName = (miniName.getText().toString());
 		if ((miniName.getText().toString()).equals(prodName.getText().toString())) {
 			System.out.println("The Product '" + prodName.getText().toString() + "' is added to Cart");
+			minicart.pass("The Product '" + prodName.getText().toString() + "' is added to Cart");
 		} else {
 			System.out.println("The Product '" + prodName.getText().toString() + "' is NOT added to Cart");
+			minicart.fail("The Product '" + prodName.getText().toString() + "' is NOT added to Cart");
 		}
 	}
 
@@ -101,8 +118,10 @@ public class minicart_pop {
 		productPrice = prodPrice.getText();
 		if(prodPrice.getText().equals(miniPrice.getText())) {
 			System.out.println("Product Price is Same");
+			minicart.pass("Product Price is Correct");
 		}else {
-			System.out.println("Product price is NOT Same");
+			System.out.println("Product price is NOT Correct");
+			minicart.fail("Product price is NOT Correct");
 		}
 	}
 	
@@ -111,12 +130,15 @@ public class minicart_pop {
 		action.actClick(seeDetails);
 		if(Integer.valueOf(miniQty.getAttribute("data-item-qty")).equals(Qty)) {
 			System.out.println("Same Qty is added to Cart");
+			minicart.pass("Same Qty is added to Cart");
 		}else {
 			System.out.println("Different Qty is added to Cart");
+			minicart.fail("Different Qty is added to Cart");
 		}
 	}
 
 	public void goToCart() {
 		action.actClick(goCart);
+		minicart.info("View Cart button is clicked");
 	}
 }

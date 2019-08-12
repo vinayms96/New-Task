@@ -1,8 +1,10 @@
 package generic;
 
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
-import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -25,11 +27,20 @@ public class wait extends openBrowser {
 		w.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(ele)));
 	}
 	
-	@SuppressWarnings("deprecation")
-	public static void fluentWait() {
-		Wait wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(45, TimeUnit.SECONDS)
-				.pollingEvery(5, TimeUnit.SECONDS)
-				.ignoring(NoSuchElementException.class);
-	}
+@SuppressWarnings("deprecation")
+//	@SuppressWarnings("deprecation")
+//	public static void fluentWait(WebDriver driver) {
+		// Waiting 30 seconds for an element to be present on the page, checking
+		   // for its presence once every 5 seconds.
+		   Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+		       .withTimeout(30, TimeUnit.SECONDS)
+		       .pollingEvery(5, TimeUnit.SECONDS)
+		       .ignoring(NoSuchElementException.class);
+
+		   WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
+		     public WebElement apply(WebDriver driver) {
+		       return driver.findElement(By.id("foo"));
+		     }
+		   });
+//	}
 }

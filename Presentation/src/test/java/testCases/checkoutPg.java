@@ -13,7 +13,5 @@ public class checkoutPg extends openBrowser{
 		chp.shipping(driver);
 		chp.bank(driver);
 		chp.confirmationPage();
-		chp.getOrderId();
-		chp.accountPage(driver);
 	}
 }

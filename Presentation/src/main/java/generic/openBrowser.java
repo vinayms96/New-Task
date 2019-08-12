@@ -10,24 +10,25 @@ import org.testng.annotations.BeforeSuite;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentAventReporter;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class openBrowser implements auto_constant {
 	public static WebDriver driver;
-	public ExtentReports extent;
-	public ExtentAventReporter avent;
+	public static ExtentReports extent;
+	static ExtentHtmlReporter html;
+	static ExtentTest browse;
 
 	@BeforeSuite
 	public void open() {
 		
 		// Extent reports
-		avent = new ExtentAventReporter(".\\src\\test\\resources\\Report");
+		html = new ExtentHtmlReporter("./src/test/resources/Report/testReport.html");
 		extent = new ExtentReports();
-		extent.attachReporter(avent);
+		extent.attachReporter(html);
 		
-		ExtentTest browse = extent.createTest("Choosing Browser");
+		browse = extent.createTest("Choosing Browser");
 		
 		// Choose Browser
 		if (property.getData("browser").equals("CH")) {
@@ -36,10 +37,10 @@ public class openBrowser implements auto_constant {
 				ChromeOptions options = new ChromeOptions();
 				options.addArguments("--headless");
 				driver = new ChromeDriver(options);
-				browse.pass("Headless Chrome Browser Launched");
+				browse.info("Headless Chrome Browser Launched");
 			} else {
 				driver = new ChromeDriver();
-				browse.pass("Chrome Browser Launched");
+				browse.info("Chrome Browser Launched");
 			}
 		} else if (property.getData("browser").equals("FF")) {
 			WebDriverManager.firefoxdriver().setup();
@@ -47,15 +48,15 @@ public class openBrowser implements auto_constant {
 				FirefoxOptions options = new FirefoxOptions();
 				options.addArguments("--headless");
 				driver = new FirefoxDriver(options);
-				browse.pass("Headless Firefox Browser Launched");
+				browse.info("Headless Firefox Browser Launched");
 			} else {
 				driver = new FirefoxDriver();
-				browse.pass("Firefox Browser Launched");
+				browse.info("Firefox Browser Launched");
 			}
 		}
 		driver.manage().window().maximize();
 		driver.get(url);
-		browse.pass("Website url "+url+" launched");
+		browse.info("Website url "+url+" launched");
 	}
 
 	@AfterSuite

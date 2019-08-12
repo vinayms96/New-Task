@@ -10,8 +10,9 @@ public class accountPg extends openBrowser{
 	@Test
 	public void account() {
 		account_pg ap = new account_pg(driver);
+		ap.verifyProductName();
 		ap.orderLink();
-		ap.checkOrderId(driver);
+		ap.checkOrderId();
 	}
 	
 }
