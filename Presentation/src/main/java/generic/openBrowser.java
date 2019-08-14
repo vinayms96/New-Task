@@ -24,7 +24,7 @@ public class openBrowser implements auto_constant {
 	public void open() {
 		
 		// Extent reports
-		html = new ExtentHtmlReporter("./src/test/resources/Report/testReport.html");
+		html = new ExtentHtmlReporter("./src/test/resources/Report/"+property.getData("reportName"));
 		extent = new ExtentReports();
 		extent.attachReporter(html);
 		
@@ -62,7 +62,7 @@ public class openBrowser implements auto_constant {
 	@AfterSuite
 	public void close() {
 		extent.flush();
-//		driver.quit();
+		driver.quit();
 	}
 
 }

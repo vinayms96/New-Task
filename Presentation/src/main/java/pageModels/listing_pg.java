@@ -49,7 +49,7 @@ public class listing_pg {
 			action.actClick(driver.findElement(By.xpath("//div[@class='search results']/div[2]/ol/li[1]/div/a")));
 		}else {
 			js.executeScript("arguments[0].scrollIntoView(true)", driver.findElement(By.xpath("//div[@class='search results']/div[2]/ol/li["+choose+"]/div/a")));
-			listing.fail("A Product link is clicked from Listing Page");
+			listing.pass("A Product link is clicked from Listing Page");
 			action.actClick(driver.findElement(By.xpath("//div[@class='search results']/div[2]/ol/li["+choose+"]/div/a")));
 		}
 	}
