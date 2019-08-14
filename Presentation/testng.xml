@@ -10,6 +10,7 @@
 			<class name="testCases.cartPg"/>
 			<class name="testCases.loginPg"/>
 			<class name="testCases.checkoutPg"/>
+			<class name="testCases.accountPg"/>
 		</classes>		
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

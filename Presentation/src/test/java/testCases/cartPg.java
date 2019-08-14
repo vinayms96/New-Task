@@ -11,6 +11,7 @@ public class cartPg extends openBrowser{
 	public void cart() throws Exception {
 		cart_pg cp = new cart_pg(driver);
 //		cp.checkProdname(driver);
+//		cp.configOptions();
 		cp.clickCheckout(driver);
 	}
 	

@@ -3,6 +3,27 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="5">
   <test thread-count="5" name="Test(failed)" verbose="5">
     <classes>
+      <class name="testCases.checkoutPg">
+        <methods>
+          <include name="checkout"/>
+          <include name="open"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- testCases.checkoutPg -->
+      <class name="testCases.searchPg">
+        <methods>
+          <include name="search"/>
+          <include name="open"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- testCases.searchPg -->
+      <class name="testCases.accountPg">
+        <methods>
+          <include name="account"/>
+          <include name="open"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- testCases.accountPg -->
       <class name="testCases.cartPg">
         <methods>
           <include name="cart"/>
@@ -10,6 +31,20 @@
           <include name="close"/>
         </methods>
       </class> <!-- testCases.cartPg -->
+      <class name="testCases.listingPg">
+        <methods>
+          <include name="listing"/>
+          <include name="open"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- testCases.listingPg -->
+      <class name="testCases.productPg">
+        <methods>
+          <include name="product"/>
+          <include name="open"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- testCases.productPg -->
       <class name="testCases.minicartPop">
         <methods>
           <include name="open"/>

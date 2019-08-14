@@ -10,10 +10,8 @@ public class checkoutPg extends openBrowser{
 	public void checkout() throws Exception{
 		checkout_pg chp = new checkout_pg(driver);
 //		chp.filldetails();		
-		chp.shipping();
-		chp.bank();
+		chp.shipping(driver);
+		chp.bank(driver);
 		chp.confirmationPage();
-		chp.getOrderId();
-		chp.accountPage();
 	}
 }
