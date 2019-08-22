@@ -12,5 +12,6 @@ public class productPg extends openBrowser{
 		pp.swatches(driver);
 		pp.addCart();
 		pp.confirmMsg(driver);
+		pp.stockCheck();
 	}
 }

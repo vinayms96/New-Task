@@ -36,17 +36,17 @@ public class checkout_pg implements auto_constant {
 	private WebElement _8;
 	@FindBy(xpath = "//div[@class='control _with-tooltip']/input[@name='telephone']")
 	private WebElement _9;
-//	@FindBy(xpath = "//input[@name='ko_unique_1']")
-//	private WebElement shipMethod;
+	@FindBy(xpath = "//span[contains(text(),'Cash On Delivery')]")
+	private WebElement codRadio;
 //	@FindBy(xpath = "//button[@class='button action continue primary']")
 //	private WebElement next;
 	@FindBy(xpath = "//tbody/tr/td/input[@value='flatrate_flatrate']")
 	private WebElement shipMethod;
 	@FindBy(xpath = "//button[@data-role='opc-continue']/span")
 	private WebElement next;
-	@FindBy(xpath = "//div[@class='checkout-billing-address']/div/input[@id='billing-address-same-as-shipping-checkmo']")
-	private WebElement bankTransfer;
-	@FindBy(xpath = "//button[@class='action primary checkout']/span")
+//	@FindBy(xpath = "//div[@class='checkout-billing-address']/div/input[@id='billing-address-same-as-shipping-checkmo']")
+//	private WebElement bankTransfer;
+	@FindBy(xpath = "(//button[@class='action primary checkout']/span)[1]")
 	private WebElement placeOrder;
 	@FindBy(xpath = "//h1[@class='page-title']/span")
 	private WebElement thank;
@@ -61,74 +61,23 @@ public class checkout_pg implements auto_constant {
 		PageFactory.initElements(driver, this);
 	}
 
-//	public void filldetails() throws Exception {
-//		
-//		Thread.sleep(3000);
-//		(_1).sendKeys(property.getData(String.valueOf(1)));
-//		action.actMove(_2);
-//		(_2).sendKeys(property.getData(String.valueOf(2)));
-//		action.actMove(_3);
-//		(_3).sendKeys(property.getData(String.valueOf(3)));
-//		action.actMove(_4);
-//		(_4).sendKeys(property.getData(String.valueOf(4)));
-//		action.actMove(_5);
-//		(_5).sendKeys(property.getData(String.valueOf(5)));
-//		
-//		action.actMove(_8);
-//		Select sCountry = new Select(_8);
-//		sCountry.deselectAll();
-//		sCountry.selectByValue(property.getData("8"));
-//		Thread.sleep(2000);
-//		
-//		action.actMove(_6);
-//		Select sState = new Select(_6);
-//		sState.deselectAll();
-//		sState.selectByValue(property.getData("6"));
-//		Thread.sleep(2000);
-//		
-//		action.actMove(_7);
-//		(_7).sendKeys(property.getData(String.valueOf(7)));
-//		action.actMove(_9);
-//		(_9).sendKeys(property.getData(String.valueOf(9)));
-//		action.actMove(shipMethod);
-//		(shipMethod).sendKeys(property.getData(String.valueOf(10)));
-//		action.actMove(next);
-//		action.actClick(next);
-//		//next.submit();
-//	}
-
 	public void shipping(WebDriver driver) throws Exception {
 		Thread.sleep(3000);
 		js = (JavascriptExecutor) driver;
 		Point p = next.getLocation();
 		Thread.sleep(7000);
-//		if (shipMethod.isDisplayed() && shipMethod.isSelected()) {
 			action.actClick(next, p);
 			js.executeScript("arguments[0].scrollIntoView(true);", next);
 			js.executeScript("arguments[0].click();", next);
 			checkout.info("Next button is clicked");
-//			else {
-//			shipMethod.click();
-//			js.executeScript("arguments[0].scrollIntoView(true);", next);
-//			js.executeScript("arguments[0].click();", next);
-//			checkout.info("Next button is clicked");
-//		}
 	}
 
 	public void bank(WebDriver driver) throws Exception {
 		Thread.sleep(5000);
 		js = (JavascriptExecutor) driver;
-		if (bankTransfer.isDisplayed() && bankTransfer.isSelected()) {
 			js.executeScript("arguments[0].scrollIntoView(true)", placeOrder);
 			js.executeScript("arguments[0].click();", placeOrder);
 			checkout.info("PlaceOrder button is Clicked");
-		} else {
-			js.executeScript("arguments[0].scrollIntoView(true);", bankTransfer);
-			bankTransfer.click();
-			js.executeScript("arguments[0].scrollIntoView(true);", placeOrder);
-			js.executeScript("arguments[0].click();", placeOrder);
-			checkout.info("PlaceOrder button is Clicked");
-		}
 	}
 
 	public void confirmationPage() {

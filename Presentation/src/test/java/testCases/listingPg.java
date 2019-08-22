@@ -9,9 +9,7 @@ public class listingPg extends openBrowser {
 	@Test
 	public void listing() {
 		listing_pg lp = new listing_pg(driver);
-		
-//		lp.fromList(driver);
+		lp.headSearched();
 		lp.goProd(driver);
-//		lp.cartClick();
 	}
 }
