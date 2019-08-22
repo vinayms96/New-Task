@@ -15,16 +15,17 @@ public class account_pg {
 
 	@FindBy(xpath = "//div[@class='content block-collapsible-nav-content']/ul/li[2]/a")
 	private WebElement order;
-	@FindBy(xpath = "//div[@class='table-wrapper orders-history']/table/tbody/tr/td")
+	@FindBy(xpath = "(//div[@class='table-wrapper orders-history']/table/tbody/tr/td)[1]")
 	private WebElement getID;
-	@FindBy(xpath = "//tr[@id='order-item-row-1']/td/strong")
+	@FindBy(xpath = "//table[@id='my-orders-table']/tbody/tr/td/strong")
 	private WebElement acProductName;
 	
 	public account_pg(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void verifyProductName() {
+	public void verifyProductName() throws Exception {
+		Thread.sleep(3000);
 		System.out.println(product_pg.productName);
 		if((acProductName.getText()).equals(product_pg.productName)) {
 			System.out.println("The Product ordered is "+" '"+product_pg.productName+"'");

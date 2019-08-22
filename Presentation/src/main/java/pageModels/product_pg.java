@@ -43,6 +43,10 @@ public class product_pg {
 	private WebElement prodQty;
 	@FindBy(xpath = "//div[@class='page-title-wrapper product']/h1/span")
 	private WebElement prodName;
+	
+	//Fail case Elements
+	@FindBy(xpath = "//span[contains(text(),'In stock')]")
+	private WebElement stock;
 
 	public product_pg(WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -102,6 +106,14 @@ public class product_pg {
 		}else {
 			System.out.println("The Confirmation message is NOT Displayed");
 			product.fail("The Confirmation message is NOT Displayed");
+		}
+	}
+	
+	public void stockCheck() {
+		if(stock.getText().equals("In stock")) {
+			product.fail("Product is in Stock");
+		}else {
+			product.fail("Product is Out of Stock");
 		}
 	}
 }

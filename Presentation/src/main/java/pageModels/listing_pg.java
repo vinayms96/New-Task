@@ -22,22 +22,14 @@ public class listing_pg {
 
 	@FindAll(@FindBy(xpath = "//div[@class='search results']/div[2]/ol/li"))
 	private List<WebElement> prodClick;
+	
+	//Fail Case elements
+	@FindBy(xpath = "//h1[@class='page-title']/span")
+	private WebElement searchHead;
 
 	public listing_pg(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-
-//	public void fromList(WebDriver driver) {
-////		generic.wait.waitRefresh(hoverProd);
-//		action.actMove(hoverProd);
-//		Random r = new Random();
-//		for (int loop = 0; loop < choose1.size(); loop++) {
-//			List<WebElement> choose2 = driver.findElements(By.xpath("//div[@class='search results']/div[2]/ol/li[1]/div/div/div[3]/div["+loop+"]/div/div"));
-//			System.out.println(choose2.size());
-//			System.out.println(choose2.toString());
-//			action.actClick(driver.findElement(By.xpath("//div[@class='search results']/div[2]/ol/li[1]/div/div/div[3]/div["+loop+"]/div/div["+r.nextInt(choose2.size())+"]")));
-//		}
-//	}
 
 	public void goProd(WebDriver driver) {
 		js = (JavascriptExecutor)driver;
@@ -54,7 +46,11 @@ public class listing_pg {
 		}
 	}
 
-//	public void cartClick() {
-//		action.actClick(cart);
-//	}
+	public void headSearched() {
+		if(searchHead.getText().contains("Dress")) {
+			listing.fail("Search Text is displayed");
+		}else {
+			listing.fail("Search text is NOT displayed");
+		}
+	}
 }
