@@ -1,91 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-07-13T00:38:51 IST" name="mmtTest" finished-at="2019-07-13T00:39:02 IST" duration-ms="10249">
+  <suite started-at="2019-08-28T11:25:37 IST" name="mmtTest" finished-at="2019-08-28T11:25:50 IST" duration-ms="12519">
     <groups>
     </groups>
-    <test started-at="2019-07-13T00:38:51 IST" name="test" finished-at="2019-07-13T00:39:02 IST" duration-ms="10249">
+    <test started-at="2019-08-28T11:25:37 IST" name="test" finished-at="2019-08-28T11:25:50 IST" duration-ms="12519">
       <class name="testCases.homePage">
-        <test-method is-config="true" signature="open()[pri:0, instance:testCases.homePage@7b6c6e70]" started-at="2019-07-13T00:38:42 IST" name="open" finished-at="2019-07-13T00:38:51 IST" duration-ms="9750" status="PASS">
+        <test-method is-config="true" signature="open()[pri:0, instance:testCases.homePage@7b6c6e70]" started-at="2019-08-28T11:25:30 IST" name="open" finished-at="2019-08-28T11:25:37 IST" duration-ms="7092" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- open -->
-        <test-method signature="home()[pri:0, instance:testCases.homePage@7b6c6e70]" started-at="2019-07-13T00:38:52 IST" name="home" finished-at="2019-07-13T00:39:02 IST" duration-ms="10031" status="FAIL">
-          <exception class="org.openqa.selenium.StaleElementReferenceException">
-            <message>
-              <![CDATA[stale element reference: element is not attached to the page document
-  (Session info: chrome=75.0.3770.100)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'thundurus-HP-Notebook', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.15.0-54-generic', java.version: '11.0.3'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 75.0.3770.100, chrome: {chromedriverVersion: 75.0.3770.8 (681f24ea911fe7..., userDataDir: /tmp/.com.google.Chrome.gL87zL}, goog:chromeOptions: {debuggerAddress: localhost:37283}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: fc1dceaf1c27f40830aaea3d3edff6dc
-*** Element info: {Using=xpath, value=//div[@class='makeFlex hrtlCenter']/div/p[1]}]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=75.0.3770.100)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'thundurus-HP-Notebook', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.15.0-54-generic', java.version: '11.0.3'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 75.0.3770.100, chrome: {chromedriverVersion: 75.0.3770.8 (681f24ea911fe7..., userDataDir: /tmp/.com.google.Chrome.gL87zL}, goog:chromeOptions: {debuggerAddress: localhost:37283}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: fc1dceaf1c27f40830aaea3d3edff6dc
-*** Element info: {Using=xpath, value=//div[@class='makeFlex hrtlCenter']/div/p[1]}
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:185)
-at org.openqa.selenium.remote.RemoteWebElement.findElementByXPath(RemoteWebElement.java:261)
-at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:181)
-at com.mmt.pomClasses.home_Page.dateSelector(home_Page.java:141)
-at com.mmt.pomClasses.home_Page.fsw(home_Page.java:119)
-at testCases.homePage.home(homePage.java:14)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:131)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:570)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:170)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:790)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:143)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at org.testng.TestRunner.privateRun(TestRunner.java:763)
-at org.testng.TestRunner.run(TestRunner.java:594)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:398)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:392)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1146)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1067)
-at org.testng.TestNG.runSuites(TestNG.java:997)
-at org.testng.TestNG.run(TestNG.java:965)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+        <test-method signature="home()[pri:0, instance:testCases.homePage@7b6c6e70]" started-at="2019-08-28T11:25:37 IST" name="home" finished-at="2019-08-28T11:25:50 IST" duration-ms="12324" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- home -->
-        <test-method is-config="true" signature="close()[pri:0, instance:testCases.homePage@7b6c6e70]" started-at="2019-07-13T00:39:02 IST" name="close" finished-at="2019-07-13T00:39:02 IST" duration-ms="201" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.homePage@7b6c6e70]" started-at="2019-08-28T11:25:50 IST" name="close" finished-at="2019-08-28T11:25:50 IST" duration-ms="156" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
