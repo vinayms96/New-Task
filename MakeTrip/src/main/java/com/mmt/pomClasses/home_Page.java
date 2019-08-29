@@ -1,19 +1,19 @@
 package com.mmt.pomClasses;
 
-import com.mmt.generic.Property;
-import com.mmt.generic.action;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.mmt.generic.Property;
+import com.mmt.generic.action;
+import com.mmt.generic.common.dateSelector;
 
 public class home_Page {
 
@@ -25,12 +25,11 @@ public class home_Page {
 	// Fsw Inout data
 	@FindBy(xpath = "//div[@class='fsw_inner ']/div")
 	private List<WebElement> fswRow;
-	@FindBy(xpath = "(//div[@id='react-autowhatever-1']/..//ul/li)[1]/div[1]/div/p[1]")
-	private static WebElement selectSuggestion;
-	@FindBy(xpath = "//div[@id='react-autowhatever-1']/..//ul/li")
-	private static List<WebElement> sugg;
-	@FindBy(xpath = "//div[@class='hsw_autocomplePopup autoSuggestPlugin']/div/input")
-	private static WebElement Input;
+//	@FindBy(xpath = "(//div[@id='react-autowhatever-1']/..//ul/li)[1]/div[1]/div/p[1]")
+//	private static WebElement selectSuggestion;
+//	@FindBy(xpath = "//div[@id='react-autowhatever-1']/..//ul/li")
+//	private static List<WebElement> sugg;
+	
 
 	// From City
 	@FindBy(xpath = "//div[@class='fsw_inner ']/div/label[@for='fromCity']")
@@ -43,6 +42,8 @@ public class home_Page {
 	// FromDate
 	@FindBy(xpath = "//div[@class='fsw_inputBox dates inactiveWidget ']/label")
 	private WebElement fromDate;
+	@FindAll(@FindBy(xpath = "//div[@class='DayPicker-wrapper']/div[2]/div/div[3]/div/div"))
+	private WebElement from;
 
 	// ReturnDate
 	@FindBy(xpath = "(//div[@class='DayPicker-Months']/div[1]/div[3]/div)[1]")
@@ -51,8 +52,8 @@ public class home_Page {
 	private WebElement weekLoop;
 	@FindBy(xpath = "//div[@class='DayPicker-Months']/div[1]")
 	private WebElement monthLoop;
-	
-	//SearchButton
+
+	// SearchButton
 	@FindBy(xpath = "//p[@class='makeFlex vrtlCenter ']/a")
 	private WebElement searchBut;
 
@@ -87,15 +88,15 @@ public class home_Page {
 		for (WebElement ele : type) {
 			li.add(ele);
 		}
-		if (Property.getData("travelType") == "1") {
+		if (Property.getData("travelType").equals("1")) {
 			System.out.println("Chose ONEWAY TRIP");
 			home_Page.loop(0, li);
-		} else if (Property.getData("travelType") == "2") {
+		} else if (Property.getData("travelType").equals("2")) {
 			System.out.println("Chose ROUND CITY");
 			home_Page.loop(1, li);
 			String text = li.get(1).getText();
 			System.out.println(text);
-		} else if(Property.getData("travelType")=="3") {
+		} else if (Property.getData("travelType").equals("3")) {
 			System.out.println("Chose MULTI CITY");
 			home_Page.loop(2, li);
 		}
@@ -108,77 +109,34 @@ public class home_Page {
 	}
 
 	public void fsw(String from, String to, WebDriver driver) {
+		try {
+			dateSelector ds = new dateSelector(driver);
 		for (int loop = 1; loop < fswRow.size(); loop++) {
 			switch (loop) {
 			case 1:
 				action.actClick(fromCity);
-				dateSelector(loop, from, driver);
+				ds.dateSelect(loop, from, driver);
 				break;
 			case 2:
 				action.actClick(toCity);
-				dateSelector(loop, to, driver);
+				ds.dateSelect(loop, to, driver);
 				break;
+			case 3:
+				ds.dateSelect(loop, "", driver);
 			case 4:
-				dateSelector(loop, "", driver);
-				break;
+//				dateSelector.dateSelect(loop, "", driver);
+//				break;
+				continue;
+			default:
+				continue;
 			}
+		}
+		}catch(Exception e){
+//			e.printStackTrace();
+			System.out.println("Home Page: "+e.getMessage());
 		}
 	}
 
-	public static void dateSelector(int loop, String fromto, WebDriver driver) {
-		Input.sendKeys(fromto);
-		if (loop == 1 || loop == 2) {
-			Robot r;
-			try {
-				r = new Robot();
-				r.keyPress(KeyEvent.VK_ENTER);
-				r.keyRelease(KeyEvent.VK_ENTER);
-			} catch (AWTException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			for (int i = 1; i < sugg.size(); i++) {
-				String cityCode = sugg.get(i)	`.findElement(By.xpath("//div[@class='makeFlex hrtlCenter']/div/p[1]")).getText();
-				System.out.println(cityCode);
-				if (fromto.contains(cityCode)) {
-					action.actClick(selectSuggestion);
-					break;
-				}
-			}
-		} else if (loop > 3) {
-			datePickLoop:
-			for (int month = 1; month < 3; month++) {
-				for (int week = 1; week < 6; week++) {
-					for (int day = 1; day < 8; day++) {
-						WebElement ele = driver.findElement(By.xpath("//div[@class='DayPicker-Months']/div[" + month + "1]/div[3]/div[" + week + "1]/div[" + day + "1]"))
-								.findElement(By.tagName("div"));
-						String content = ele.getAttribute("aria-selected");
-						if (content.equals("true")) {
-							pickReturn(month, week, day, driver);
-							break datePickLoop;
-						}
-					}
-				}
-			}
-		}
-	}
-
-	public static void pickReturn(int month, int week, int day, WebDriver driver) {
-		int count = 1;
-		for (int mon = month; mon < 3; mon++) {
-			for (int wk = week; wk < 6; wk++) {
-				for (int d = day; d < 8; d++) {
-					WebElement ele = driver.findElement(By.xpath("//div[@class='DayPicker-Months']/div[" + mon + "1]/div[3]/div[" + wk + "1]/div[" + d + "1]"))
-							.findElement(By.tagName("div"));
-					if (count == 7) {
-						action.actClick(ele.findElement(By.tagName("div")));
-					}
-					count++;
-				}
-			}
-		}
-	}
-	
 	public void search() {
 		action.actClick(searchBut);
 	}
