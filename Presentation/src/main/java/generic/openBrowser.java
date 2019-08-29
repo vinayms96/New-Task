@@ -33,7 +33,7 @@ public class openBrowser implements auto_constant {
 		// Choose Browser
 		if (property.getData("browser").equals("CH")) {
 			WebDriverManager.chromedriver().setup();
-			if (property.getData("head") == "On") {
+			if (property.getData("head").equals("On")) {
 				ChromeOptions options = new ChromeOptions();
 				options.addArguments("--headless");
 				driver = new ChromeDriver(options);
@@ -44,7 +44,7 @@ public class openBrowser implements auto_constant {
 			}
 		} else if (property.getData("browser").equals("FF")) {
 			WebDriverManager.firefoxdriver().setup();
-			if (property.getData("head") == "On") {
+			if (property.getData("head").equals("On")) {
 				FirefoxOptions options = new FirefoxOptions();
 				options.addArguments("--headless");
 				driver = new FirefoxDriver(options);

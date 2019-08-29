@@ -1,7 +1,6 @@
 package pageModels;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -64,9 +63,9 @@ public class checkout_pg implements auto_constant {
 	public void shipping(WebDriver driver) throws Exception {
 		Thread.sleep(3000);
 		js = (JavascriptExecutor) driver;
-		Point p = next.getLocation();
+//		Point p = next.getLocation();
 		Thread.sleep(7000);
-			action.actClick(next, p);
+//			action.actClick(next, p);
 			js.executeScript("arguments[0].scrollIntoView(true);", next);
 			js.executeScript("arguments[0].click();", next);
 			checkout.info("Next button is clicked");

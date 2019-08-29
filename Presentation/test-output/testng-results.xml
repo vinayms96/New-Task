@@ -2,62 +2,62 @@
 <testng-results ignored="14" total="22" passed="8" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-08-23T09:04:07Z" name="Suite" finished-at="2019-08-23T09:05:21Z" duration-ms="73235">
+  <suite started-at="2019-08-29T19:07:06 IST" name="Suite" finished-at="2019-08-29T19:08:15 IST" duration-ms="68789">
     <groups>
     </groups>
-    <test started-at="2019-08-23T09:04:07Z" name="Test" finished-at="2019-08-23T09:05:21Z" duration-ms="73235">
+    <test started-at="2019-08-29T19:07:06 IST" name="Test" finished-at="2019-08-29T19:08:15 IST" duration-ms="68789">
       <class name="testCases.searchPg">
-        <test-method is-config="true" signature="open()[pri:0, instance:testCases.searchPg@5edc70ed]" started-at="2019-08-23T09:03:53Z" name="open" finished-at="2019-08-23T09:04:07Z" duration-ms="14709" status="PASS">
+        <test-method is-config="true" signature="open()[pri:0, instance:testCases.searchPg@490c7a83]" started-at="2019-08-29T19:06:57 IST" name="open" finished-at="2019-08-29T19:07:06 IST" duration-ms="8906" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- open -->
-        <test-method signature="search()[pri:0, instance:testCases.searchPg@5edc70ed]" started-at="2019-08-23T09:04:07Z" name="search" finished-at="2019-08-23T09:04:11Z" duration-ms="3484" status="PASS">
+        <test-method signature="search()[pri:0, instance:testCases.searchPg@490c7a83]" started-at="2019-08-29T19:07:06 IST" name="search" finished-at="2019-08-29T19:07:08 IST" duration-ms="2120" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- search -->
-        <test-method is-config="true" signature="close()[pri:0, instance:testCases.searchPg@5edc70ed]" started-at="2019-08-23T09:05:21Z" name="close" finished-at="2019-08-23T09:05:21Z" duration-ms="734" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.searchPg@490c7a83]" started-at="2019-08-29T19:08:15 IST" name="close" finished-at="2019-08-29T19:08:16 IST" duration-ms="794" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
       </class> <!-- testCases.searchPg -->
       <class name="testCases.loginPg">
-        <test-method signature="login()[pri:0, instance:testCases.loginPg@2ef0dd86]" started-at="2019-08-23T09:04:47Z" name="login" finished-at="2019-08-23T09:04:56Z" duration-ms="9415" status="PASS">
+        <test-method signature="login()[pri:0, instance:testCases.loginPg@2cd62003]" started-at="2019-08-29T19:07:42 IST" name="login" finished-at="2019-08-29T19:07:52 IST" duration-ms="9450" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
       </class> <!-- testCases.loginPg -->
       <class name="testCases.minicartPop">
-        <test-method signature="miniCart()[pri:0, instance:testCases.minicartPop@6cd64b3f]" started-at="2019-08-23T09:04:24Z" name="miniCart" finished-at="2019-08-23T09:04:40Z" duration-ms="15630" status="PASS">
+        <test-method signature="miniCart()[pri:0, instance:testCases.minicartPop@6d0b0da6]" started-at="2019-08-29T19:07:22 IST" name="miniCart" finished-at="2019-08-29T19:07:36 IST" duration-ms="14413" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- miniCart -->
       </class> <!-- testCases.minicartPop -->
       <class name="testCases.productPg">
-        <test-method signature="product()[pri:0, instance:testCases.productPg@7e4c72d6]" started-at="2019-08-23T09:04:13Z" name="product" finished-at="2019-08-23T09:04:24Z" duration-ms="11423" status="PASS">
+        <test-method signature="product()[pri:0, instance:testCases.productPg@6015a4a5]" started-at="2019-08-29T19:07:10 IST" name="product" finished-at="2019-08-29T19:07:22 IST" duration-ms="11510" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- product -->
       </class> <!-- testCases.productPg -->
       <class name="testCases.listingPg">
-        <test-method signature="listing()[pri:0, instance:testCases.listingPg@4317850d]" started-at="2019-08-23T09:04:11Z" name="listing" finished-at="2019-08-23T09:04:13Z" duration-ms="2078" status="PASS">
+        <test-method signature="listing()[pri:0, instance:testCases.listingPg@7e72a6cc]" started-at="2019-08-29T19:07:08 IST" name="listing" finished-at="2019-08-29T19:07:10 IST" duration-ms="1765" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- listing -->
       </class> <!-- testCases.listingPg -->
       <class name="testCases.cartPg">
-        <test-method signature="cart()[pri:0, instance:testCases.cartPg@51b01550]" started-at="2019-08-23T09:04:40Z" name="cart" finished-at="2019-08-23T09:04:47Z" duration-ms="6445" status="PASS">
+        <test-method signature="cart()[pri:0, instance:testCases.cartPg@4779aae6]" started-at="2019-08-29T19:07:36 IST" name="cart" finished-at="2019-08-29T19:07:42 IST" duration-ms="6313" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cart -->
       </class> <!-- testCases.cartPg -->
       <class name="testCases.accountPg">
-        <test-method signature="account()[pri:0, instance:testCases.accountPg@6de6faa6]" started-at="2019-08-23T09:05:16Z" name="account" finished-at="2019-08-23T09:05:21Z" duration-ms="4483" status="PASS">
+        <test-method signature="account()[pri:0, instance:testCases.accountPg@5478ce1e]" started-at="2019-08-29T19:08:10 IST" name="account" finished-at="2019-08-29T19:08:15 IST" duration-ms="4399" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- account -->
       </class> <!-- testCases.accountPg -->
       <class name="testCases.checkoutPg">
-        <test-method signature="checkout()[pri:0, instance:testCases.checkoutPg@3337d04c]" started-at="2019-08-23T09:04:56Z" name="checkout" finished-at="2019-08-23T09:05:16Z" duration-ms="20194" status="PASS">
+        <test-method signature="checkout()[pri:0, instance:testCases.checkoutPg@61ab89b0]" started-at="2019-08-29T19:07:52 IST" name="checkout" finished-at="2019-08-29T19:08:10 IST" duration-ms="18696" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkout -->

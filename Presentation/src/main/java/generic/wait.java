@@ -38,7 +38,8 @@ public class wait extends openBrowser {
 		       .ignoring(NoSuchElementException.class);
 
 		   WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
-		     public WebElement apply(WebDriver driver) {
+		     @Override
+			public WebElement apply(WebDriver driver) {
 		       return driver.findElement(By.id("foo"));
 		     }
 		   });
